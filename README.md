@@ -1,69 +1,38 @@
-# React + TypeScript + Vite
+# Okada & Company – marketing site + leasing chat widget
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Front-end for **Okada & Company**, a (demo) NYC commercial real-estate firm: a
+single-page marketing site with an embedded **AI leasing-assistant chat widget**.
 
-Currently, two official plugins are available:
+Part of the Okada Leasing Agent project family – the widget talks to a backend
+like [`vite-react-typescript-starter`](https://github.com/senseikartikey/vite-react-typescript-starter)
+or [`fake-chatbot`](https://github.com/senseikartikey/fake-chatbot).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Hero / landing section for the firm.
+- Floating chat button that expands into an assistant panel
+  (`Okada & Company` branding, typing spinner, message history).
+- Chat calls `POST /api/chat` with `{ message }` and renders the reply – point
+  this at your leasing-agent backend (dev proxy or deployment rewrite).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19** + **TypeScript**
+- **Vite**
+- **Tailwind CSS v4**
+- **Framer Motion** (panel + message animation)
+- **lucide-react** icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev        # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Configure the `/api/chat` proxy in `vite.config.ts` to reach your backend, then:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build      # -> dist/
+npm run preview
 ```
