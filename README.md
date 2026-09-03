@@ -4,8 +4,8 @@ Front-end for **Okada & Company**, a (demo) NYC commercial real-estate firm: a
 single-page marketing site with an embedded **AI leasing-assistant chat widget**.
 
 Part of the Okada Leasing Agent project family – the widget talks to a backend
-like [`vite-react-typescript-starter`](https://github.com/senseikartikey/vite-react-typescript-starter)
-or [`fake-chatbot`](https://github.com/senseikartikey/fake-chatbot).
+like [`okada-leasing-agent-fullstack`](https://github.com/senseikartikey/okada-leasing-agent-fullstack)
+or [`okada-leasing-agent`](https://github.com/senseikartikey/okada-leasing-agent).
 
 ## Features
 
