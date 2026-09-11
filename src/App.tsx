@@ -4,6 +4,13 @@ import React, { useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, X, Send, Paperclip, RotateCcw, Users } from 'lucide-react'
 
+// The model answers in light markdown; the bubbles render plain text.
+const toPlainText = (text: string) =>
+  text
+    .replace(/**(.+?)**/g, "$1")
+    .replace(/^s*[*-]s+/gm, "• ")
+    .trim()
+
 // Utility function to merge class names
 const cn = (...inputs: any[]) => {
   return inputs.filter(Boolean).join(' ')
@@ -141,7 +148,7 @@ const Chatbot: React.FC = () => {
           
           const botMessage: Message = {
             id: (Date.now() + 1).toString(),
-            content: data.answer || 'I am unable to respond at the moment.',
+            content: data.answer ? toPlainText(data.answer) : 'I am unable to respond at the moment.',
             sender: 'bot',
           };
           setMessages(prev => [...prev, botMessage]);
@@ -243,7 +250,7 @@ const Chatbot: React.FC = () => {
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((message) => (
                 <div key={message.id} className={cn("flex", message.sender === 'user' ? "justify-end" : "justify-start")}>
-                  <div className={cn("max-w-[85%] px-4 py-2.5 rounded-2xl text-sm shadow-sm", message.sender === 'user' ? "bg-blue-600 text-white rounded-br-lg" : "bg-gray-100 text-gray-800 rounded-bl-lg")}>
+                  <div className={cn("max-w-[85%] px-4 py-2.5 rounded-2xl text-sm shadow-sm whitespace-pre-line", message.sender === 'user' ? "bg-blue-600 text-white rounded-br-lg" : "bg-gray-100 text-gray-800 rounded-bl-lg")}>
                     {message.content}
                   </div>
                 </div>
