@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 takes a single import; the v3 @tailwind directives emitted no
+   utilities with this version, which is why the page rendered unstyled. */
+@import "tailwindcss";
 
 body {
   -webkit-font-smoothing: antialiased;
