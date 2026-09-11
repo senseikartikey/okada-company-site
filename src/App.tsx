@@ -7,8 +7,8 @@ import { MessageCircle, X, Send, Paperclip, RotateCcw, Users } from 'lucide-reac
 // The model answers in light markdown; the bubbles render plain text.
 const toPlainText = (text: string) =>
   text
-    .replace(/**(.+?)**/g, "$1")
-    .replace(/^s*[*-]s+/gm, "• ")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/^\s*[*-]\s+/gm, "• ")
     .trim()
 
 // Utility function to merge class names
