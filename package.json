@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "okada-company-site",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +13,8 @@
     "framer-motion": "^12.23.3",
     "lucide-react": "^0.525.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "@google/generative-ai": "^0.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
@@ -32,7 +33,7 @@
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.4"
   },
-  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "description": "Okada & Company demo: marketing site with an AI leasing-assistant chat widget, answered by a Gemini-backed Vercel function.",
   "main": "eslint.config.js",
   "keywords": [],
   "author": "",

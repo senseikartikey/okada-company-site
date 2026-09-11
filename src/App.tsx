@@ -86,7 +86,8 @@ const Chatbot: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      content: 'Hello! Welcome to Okada & Company. How can I help you with your leasing needs today?',
+      content:
+        "Welcome to the Okada & Company leasing demo. Tell me the use, size and neighbourhood you need and I will suggest a space. These listings are sample data for this demo.",
       sender: 'bot',
     }
   ])
@@ -181,7 +182,6 @@ const Chatbot: React.FC = () => {
 
   const switchUser = () => {
     // In a real app, this would trigger a login/logout flow
-    alert("User session has been reset.");
     resetChat();
   }
 
@@ -230,7 +230,7 @@ const Chatbot: React.FC = () => {
                     <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-bold text-lg">O</div>
                     <div>
                         <h3 className="font-semibold text-sm text-gray-800">Okada & Company</h3>
-                        <p className="text-xs text-green-500">● Online</p>
+                        <p className="text-xs text-gray-500">Demo assistant &middot; sample listings</p>
                     </div>
                 </div>
               <div className="flex items-center space-x-1">
@@ -303,6 +303,16 @@ const OkadaCompanyWebsite: React.FC = () => {
         />
 
       <div className="relative z-10">
+
+        {/* This is a portfolio demo of a real hackathon project, not the firm's site. */}
+        <div className="bg-gray-900 text-gray-100 text-xs sm:text-sm">
+          <p className="max-w-7xl mx-auto px-6 lg:px-8 py-2">
+            Demo project &mdash; an AI leasing assistant built for the Okada &amp; Co. hackathon by{" "}
+            <a href="https://kartikeypatel.com" className="underline underline-offset-2" target="_blank" rel="noreferrer">Kartikey Patel</a>.
+            {" "}Not affiliated with or endorsed by Okada &amp; Company. Listings are sample data.
+          </p>
+        </div>
+
         {/* Header */}
         <header className="py-6">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -337,7 +347,7 @@ const OkadaCompanyWebsite: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                 className="mt-6 text-lg text-gray-600 max-w-xl"
               >
-                Okada & Company is your trusted partner in navigating the NYC real estate market. Let our AI assistant help you find the ideal property today.
+                A demo of the AI leasing assistant that won the Okada &amp; Co. hackathon: ask it for commercial space by use, size, neighbourhood or budget, and it answers from a sample NYC listing set.
               </motion.p>
             </div>
           </div>
